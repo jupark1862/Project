@@ -46,7 +46,7 @@
 				<div class="row">
 				<!-- Logo Starts -->
 					<div class="col-lg-3 col-sm-12 text-xs-center text-sm-center text-lg-left">
-						<img src="images/logo.png" alt="FoodBingo" class="img-fluid">
+						<img src="../images/logo.png" alt="FoodBingo" class="img-fluid">
 					</div>
 				<!-- Logo Ends -->
 				<!-- Page Links Starts -->
