@@ -74,7 +74,7 @@ public class Notice {
 	
 	@Override
 	public String toString() {
-		return "View [bbsID=" + bbsid + ", bbsTitle=" + bbsTitle + ", bbsDate=" + bbsDate + ", bbsID=" + bbsID + ", Hit="
+		return "View [bbsID=" + bbsID + ", bbsTitle=" + bbsTitle + ", bbsDate=" + bbsDate + ", bbsID=" + bbsID + ", Hit="
 				+ Hit + ", bbsContent=" + bbsContent + "]";
 	}
 	

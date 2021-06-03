@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-
 <%@ include file="include/header.jspf"%>
+
 
 	<!-- Search Section Starts -->
 		<section class="search-area parallax">
@@ -93,7 +93,7 @@
 					<!-- Welcome Box Ends -->
 					</div>
 					<div class="col-lg-7 col-md-6 col-sm-12">
-						<img src="images/welcome-img1.jpg" alt="Welcome" class="img-fluid img-center">
+						<img src="../images/welcome-img1.jpg" alt="Welcome" class="img-fluid img-center">
 					</div>
 				</div>
 			<!-- Welcome Content Ends -->
@@ -102,7 +102,7 @@
 				<!-- Food Menu #1 Starts -->
 					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="hover-content">
-							<img src="images/menu/thumb/chinese-menu.jpg" alt="chinese" class="img-fluid animation">
+							<img src="../images/menu/thumb/chinese-menu.jpg" alt="chinese" class="img-fluid animation">
 							<div class="overlay animation">
 								<h4 class="text-uppercase">Chinese</h4>
 							</div>
@@ -112,7 +112,7 @@
 				<!-- Food Menu #2 Starts -->
 					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="hover-content">
-							<img src="images/menu/thumb/indian-menu.jpg" alt="Indian" class="img-fluid animation">
+							<img src="../images/menu/thumb/indian-menu.jpg" alt="Indian" class="img-fluid animation">
 							<div class="overlay animation">
 								<h4 class="text-uppercase">Indian</h4>
 							</div>
@@ -122,7 +122,7 @@
 				<!-- Food Menu #3 Starts -->
 					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="hover-content">
-							<img src="images/menu/thumb/italian-menu.jpg" alt="italian" class="img-fluid animation">
+							<img src="../images/menu/thumb/italian-menu.jpg" alt="italian" class="img-fluid animation">
 							<div class="overlay animation">
 								<h4 class="text-uppercase">Italian</h4>
 							</div>
@@ -132,7 +132,7 @@
 				<!-- Food Menu #4 Starts -->
 					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="hover-content">
-							<img src="images/menu/thumb/continental-menu.jpg" alt="continental" class="img-fluid animation">
+							<img src="../images/menu/thumb/continental-menu.jpg" alt="continental" class="img-fluid animation">
 							<div class="overlay animation">
 								<h4 class="text-uppercase">Continental</h4>
 							</div>
@@ -142,7 +142,7 @@
 				<!-- Food Menu #5 Starts -->
 					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="hover-content">
-							<img src="images/menu/thumb/thai-menu.jpg" alt="thai" class="img-fluid animation">
+							<img src="../images/menu/thumb/thai-menu.jpg" alt="thai" class="img-fluid animation">
 							<div class="overlay animation">
 								<h4 class="text-uppercase">Thai</h4>
 							</div>
@@ -152,7 +152,7 @@
 				<!-- Food Menu #6 Starts -->
 					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="hover-content">
-							<img src="images/menu/thumb/sushi-menu.jpg" alt="sushi" class="img-fluid animation">
+							<img src="../images/menu/thumb/sushi-menu.jpg" alt="sushi" class="img-fluid animation">
 							<div class="overlay animation">
 								<h4 class="text-uppercase">Sushi</h4>
 							</div>
@@ -162,7 +162,7 @@
 				<!-- Food Menu #7 Starts -->
 					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="hover-content">
-							<img src="images/menu/thumb/pizza-menu.jpg" alt="Pizza &amp; Burgers" class="img-fluid animation">
+							<img src="../images/menu/thumb/pizza-menu.jpg" alt="Pizza &amp; Burgers" class="img-fluid animation">
 							<div class="overlay animation">
 								<h4 class="text-uppercase">Pizza &amp; Burgers</h4>
 							</div>
@@ -172,7 +172,7 @@
 				<!-- Food Menu #8 Starts -->
 					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="hover-content">
-							<img src="images/menu/thumb/veggies-menu.jpg" alt="Pure Veggies" class="img-fluid animation">
+							<img src="../images/menu/thumb/veggies-menu.jpg" alt="Pure Veggies" class="img-fluid animation">
 							<div class="overlay animation">
 								<h4 class="text-uppercase">Pure Veggies</h4>
 							</div>
@@ -182,7 +182,7 @@
 				<!-- Food Menu #9 Starts -->
 					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="hover-content">
-							<img src="images/menu/thumb/tiffins-menu.jpg" alt="tiffins &amp; breakfast" class="img-fluid animation">
+							<img src="../images/menu/thumb/tiffins-menu.jpg" alt="tiffins &amp; breakfast" class="img-fluid animation">
 							<div class="overlay animation">
 								<h4 class="text-uppercase">Tiffins &amp; Breakfast</h4>
 							</div>
@@ -318,7 +318,7 @@
 				<div id="special-offers-carousel" class="owl-carousel">
 				<!-- Offer Col #1 Starts -->
 					<div class="offer-col text-center">
-						<img src="images/special-offers/special-offers-img1.jpg" alt="Food Basera" class="img-fluid img-center">
+						<img src="../images/special-offers/special-offers-img1.jpg" alt="Food Basera" class="img-fluid img-center">
 						<a href="#" class="btn btn-circle text-uppercase text-weight-bold animation">More</a>
 						<div class="content">
 							<h4>Food Basera</h4>
@@ -329,7 +329,7 @@
 				<!-- Offer Col #1 Ends -->
 				<!-- Offer Col #2 Starts -->
 					<div class="offer-col text-center">
-						<img src="images/special-offers/special-offers-img2.jpg" alt="Food Basera" class="img-fluid img-center">
+						<img src="../images/special-offers/special-offers-img2.jpg" alt="Food Basera" class="img-fluid img-center">
 						<a href="#" class="btn btn-circle text-uppercase text-weight-bold animation">More</a>
 						<div class="content">
 							<h4>Food Paradise</h4>
@@ -340,7 +340,7 @@
 				<!-- Offer Col #2 Ends -->
 				<!-- Offer Col #3 Starts -->
 					<div class="offer-col text-center">
-						<img src="images/special-offers/special-offers-img3.jpg" alt="Food Basera" class="img-fluid img-center">
+						<img src="../images/special-offers/special-offers-img3.jpg" alt="Food Basera" class="img-fluid img-center">
 						<a href="#" class="btn btn-circle text-uppercase text-weight-bold animation">More</a>
 						<div class="content">
 							<h4>Taj Mahal Food</h4>
@@ -351,7 +351,7 @@
 				<!-- Offer Col #3 Ends -->
 				<!-- Offer Col #4 Starts -->
 					<div class="offer-col text-center">
-						<img src="images/special-offers/special-offers-img4.jpg" alt="Food Basera" class="img-fluid img-center">
+						<img src="../images/special-offers/special-offers-img4.jpg" alt="Food Basera" class="img-fluid img-center">
 						<a href="#" class="btn btn-circle text-uppercase text-weight-bold animation">More</a>
 						<div class="content">
 							<h4>Green Bawarchi</h4>
@@ -362,7 +362,7 @@
 				<!-- Offer Col #4 Ends -->
 				<!-- Offer Col #5 Starts -->
 					<div class="offer-col text-center">
-						<img src="images/special-offers/special-offers-img1.jpg" alt="Food Basera" class="img-fluid img-center">
+						<img src="../images/special-offers/special-offers-img1.jpg" alt="Food Basera" class="img-fluid img-center">
 						<a href="#" class="btn btn-circle text-uppercase text-weight-bold animation">More</a>
 						<div class="content">
 							<h4>Food Basera</h4>
@@ -373,7 +373,7 @@
 				<!-- Offer Col #5 Ends -->
 				<!-- Offer Col #6 Starts -->
 					<div class="offer-col text-center">
-						<img src="images/special-offers/special-offers-img2.jpg" alt="Food Basera" class="img-fluid img-center">
+						<img src="../images/special-offers/special-offers-img2.jpg" alt="Food Basera" class="img-fluid img-center">
 						<a href="#" class="btn btn-circle text-uppercase text-weight-bold animation">More</a>
 						<div class="content">
 							<h4>Food Paradise</h4>
@@ -384,7 +384,7 @@
 				<!-- Offer Col #6 Ends -->
 				<!-- Offer Col #7 Starts -->
 					<div class="offer-col text-center">
-						<img src="images/special-offers/special-offers-img3.jpg" alt="Food Basera" class="img-fluid img-center">
+						<img src="../images/special-offers/special-offers-img3.jpg" alt="Food Basera" class="img-fluid img-center">
 						<a href="#" class="btn btn-circle text-uppercase text-weight-bold animation">More</a>
 						<div class="content">
 							<h4>Taj Mahal Food</h4>
@@ -395,7 +395,7 @@
 				<!-- Offer Col #7 Ends -->
 				<!-- Offer Col #8 Starts -->
 					<div class="offer-col text-center">
-						<img src="images/special-offers/special-offers-img4.jpg" alt="Food Basera" class="img-fluid img-center">
+						<img src="../images/special-offers/special-offers-img4.jpg" alt="Food Basera" class="img-fluid img-center">
 						<a href="#" class="btn btn-circle text-uppercase text-weight-bold animation">More</a>
 						<div class="content">
 							<h4>Green Bawarchi</h4>
@@ -492,19 +492,19 @@
 							<h5>Download our free iOS, Windows phone and Android App and order food online the fastest way possible.</h5>
 							<ul class="list-unstyled list-inline">
 								<li class="list-inline-item">
-									<a href="#"><img src="images/badge/apple-badge.png" alt="Download on app store" class="img-fluid"></a>
+									<a href="#"><img src="../images/badge/apple-badge.png" alt="Download on app store" class="img-fluid"></a>
 								</li>
 								<li class="list-inline-item">
-									<a href="#"><img src="images/badge/google-play-badge.png" alt="Get it on Google Play" class="img-fluid"></a>
+									<a href="#"><img src="../images/badge/google-play-badge.png" alt="Get it on Google Play" class="img-fluid"></a>
 								</li>
 								<li class="list-inline-item">
-									<a href="#"><img src="images/badge/windows-badge.png" alt="Download from windows phone store" class="img-fluid"></a>
+									<a href="#"><img src="../images/badge/windows-badge.png" alt="Download from windows phone store" class="img-fluid"></a>
 								</li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-12 offset-md-1 order-md-first text-xs-center text-sm-center text-md-left">
-						<img src="images/mockups/mobile-mockup.png" alt="App Mobile Mockup" class="img-fluid">
+						<img src="../images/mockups/mobile-mockup.png" alt="App Mobile Mockup" class="img-fluid">
 					</div>
 				</div>
 			<!-- Nested Row Ends -->

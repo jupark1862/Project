@@ -41,7 +41,7 @@ public class DetailController extends HttpServlet{
 		String Hit = rs.getString("hit");
 		String bbsContent = rs.getString("bbscontent");
 
-		Notice view = new Notice(
+		Notice notice = new Notice(
 				id,
 				bbsTitle,
 				bbsDate,
@@ -50,7 +50,7 @@ public class DetailController extends HttpServlet{
 				bbsContent
 				);
 		
-		request.setAttribute("v", view);
+		request.setAttribute("n", notice);
 		
 //		request.setAttribute("title",title);
 //		request.setAttribute("bbsDate",bbsDate);
@@ -74,6 +74,6 @@ public class DetailController extends HttpServlet{
 	
 	
 	//forward
-	request.getRequestDispatcher("/CARE/view/detail.jsp").forward(request, response);
+	request.getRequestDispatcher("/WEB-INF/view/detail.jsp").forward(request, response);
 	}
 }

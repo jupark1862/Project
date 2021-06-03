@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
- <%@ page import = "user.UserDAO" %>
- <%@ page import = "java.io.PrintWriter" %>
- <%request.setCharacterEncoding("UTF-8"); %>
-  <jsp:useBean id="user" class="user/User" scope="page" />
-  <jsp:setProperty name="user" property="userID"/>
-  <jsp:setProperty name="user" property="userPassword"/>
+ <%@ page import = "user.UsermemberDAO" %>
+  <%@ page import = "java.io.PrintWriter" %>
+  <%request.setCharacterEncoding("UTF-8"); %>
+  <jsp:useBean id="user" class="user.Usermember" scope="page"/>
+  <jsp:setProperty name="user" property="USERID"/>
+  <jsp:setProperty name="user" property="USERPASSWORD"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +18,8 @@
 </head>
 <body>
 <% 
-UserDAO usermemberDAO = new UserDAO();
-int result = usermemberDAO.login(user.getUserID(), user.getUserPassword());
+UsermemberDAO usermemberDAO = new UsermemberDAO();
+int result = usermemberDAO.login(user.getUserID(), user.getUserPASSWORD());
 if(result == 1){
 	PrintWriter script = response.getWriter();
 	script.println("<script>");

@@ -36,7 +36,7 @@ try {
 
 	while(rs.next()){
 		
-	int id = rs.getInt("id");
+	int bbsID = rs.getInt("bbsid");
 	String bbsTitle = rs.getString("bbstitle");
 	Date bbsDate = rs.getDate("bbsdate");
 	String userID = rs.getString("userid");
@@ -44,7 +44,7 @@ try {
 	String bbsContent = rs.getString("bbscontent");
 
 	Notice notice = new Notice(
-			id,
+			bbsID,
 			bbsTitle,
 			bbsDate,
 			userID,
@@ -66,6 +66,6 @@ try {
 }
 request.setAttribute("list",list);
 
-request.getRequestDispatcher("/CARE/view/board.jsp").forward(request, response);
+request.getRequestDispatcher("/WEB-INF/view/board.jsp").forward(request, response);
 }
 }
