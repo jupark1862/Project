@@ -17,7 +17,7 @@
 			</tr>
 			<tr>
 				<th>작성일</th>
-				<td class="text-align-left text-indent" colspan="3" ${n.bbsDate}>
+				<td class="text-align-left text-indent" colspan="3"> ${n.bbsDate}
 				</td>
 			</tr>
 			<tr>

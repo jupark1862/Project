@@ -14,20 +14,20 @@
 		<title>Food Bingo - Bootstrap Template</title>
 
 		<!-- Bootstrap -->
-		<link href="../../CARE/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
 
 		<!-- Google Web Fonts -->
-		<link href="../../CARE/https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
+		<link href="../https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
 
 		<!-- Template CSS Files  -->
-		<link href="../../CARE/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-		<link href="../../CARE/js/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
-		<link href="../../CARE/js/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
-		<link href="../../CARE/js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
-		<link href="../../CARE/js/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
-		<link href="../../CARE/js/plugins/datepicker/datepicker.css" rel="stylesheet">
-		<link href="../../CARE/css/style.css" rel="stylesheet">
-		<link href="../../CARE/css/responsive.css" rel="stylesheet">
+		<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../js/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+		<link href="../js/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
+		<link href="../js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
+		<link href="../js/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<link href="../js/plugins/datepicker/datepicker.css" rel="stylesheet">
+		<link href="../css/style.css" rel="stylesheet">
+		<link href="../css/responsive.css" rel="stylesheet">
 
 	</head>
 	<body>
@@ -39,8 +39,8 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-12">
 					<!-- Logo Starts -->
-					<a href="../../CARE/index.jsp">
-						<img src="../../CARE/images/logo.png" alt="FoodBingo" class="logo img-fluid">
+					<a href="../index.jsp">
+						<img src="../images/logo.png" alt="FoodBingo" class="logo img-fluid">
 						</a>
 					<!-- Logo Ends -->
 					</div>
@@ -90,7 +90,7 @@
 						<li class="nav-item active"><a href="contact.html" class="nav-link">Contact Us</a></li>
 						<li class="nav-item dropdown">
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-							<ul class="dropdown-menu rounded-0 float-md-right">
+							<ul class="dropdown-menu rounded-0 float-md-right"> 
 								<a href="index.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Home</a>
 								<a href="about.html" class="dropdown-item"><i class="fa fa-angle-right"></i> About Us</a>
 								<a href="food-listing.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Food List</a>

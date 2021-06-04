@@ -4,7 +4,7 @@
 <html lang="en">
 	<head>
 
-<%@ include file="include/header.jspf"%>
+<%@ include file="header.jspf"%>
 
 	<!-- Search Section Starts -->
 		<section class="search-area parallax">
@@ -512,4 +512,4 @@
 		<!-- Nested Container Ends -->
 		</section>
 	<!-- Download App Section Ends -->
-<%@ include file="include/footer.jspf"%>
+<%@ include file="footer.jspf"%>
