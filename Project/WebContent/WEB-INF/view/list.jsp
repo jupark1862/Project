@@ -116,12 +116,12 @@
 									<c:forEach var="n" items="${list}" begin="0" end="4"
 										varStatus="st">
 										<tr>
-											<td>${st.index+1}</td>
+											<td>${n.bbsId}</td>
 											<td class="title indent text-dlign-left"><a
 												href="detail?id=${n.bbsID}">${n.bbsTitle}</a></td>
-											<td>${n.userID}</td>
+											<td>${n.id}</td>
 											<td>${n.bbsDate}</td>
-											<td>${n.hit}</td>
+											<td>${n.bbsHit}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
