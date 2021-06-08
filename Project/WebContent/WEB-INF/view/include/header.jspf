@@ -80,7 +80,7 @@
 				<div class="collapse navbar-collapse navbar-cat-collapse">
 					<ul class="nav navbar-nav text-uppercase text-weight-bold">
 						<li class="nav-item"><a href="index.jsp" class="nav-link">홈</a></li>
-						<li class="nav-item"><a href="bbs.do" class="nav-link">게시판</a></li>
+						<li class="nav-item"><a href="board.do" class="nav-link">게시판</a></li>
 						<li class="nav-item"><a href="food-listing.html" class="nav-link">Food List</a></li>
 						<li class="nav-item"><a href="food-grid.html" class="nav-link">Food Grid</a></li>
 						<li class="nav-item"><a href="food-details.html" class="nav-link">Food Detail</a></li>

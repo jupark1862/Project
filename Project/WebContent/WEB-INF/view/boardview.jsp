@@ -7,33 +7,29 @@
 
 
 <main>
-	<form action="modify.do" method="post">
-		<input type="hidden" name="bld" value="${content_view.boardNo}">
 		<h3 class="main title" align="center">게시판</h3>
 		<table class="table">
 			<tbody>
 				<tr>
 					<th>제목</th>
 					<td class="text-align-left text-indent text-strong text-orange"
-						colspan="1">${bbsview.bbsTitle}</td>
+						colspan="1">${v.boardTitle}</td>
 				</tr>
 				<tr>
 					<th>작성일</th>
-					<td class="text-align-left text-indent" colspan="3">${bbsview.bbsDate}</td>
+					<td class="text-align-left text-indent" colspan="3">${v.boardDate}</td>
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td>${bbsview.id}</td>
+					<td>${v.userNo}</td>
 					<th>조회수</th>
-					<td>${bbsview.bbsHit}</td>
+					<td>${v.hit}</td>
 				</tr>
 				<tr class="content">
-					<td colspan="4">${bbsview.bbsContent}</td>
+					<td colspan="4">${v.boardContents}</td>
 				</tr>
 			</tbody>
 		</table>
-	</form>
-
 
 	<div class="margin-top">
 		<table class="table border-top-default">
@@ -42,13 +38,13 @@
 				<tr>
 					<td class="text-align-left text-indent"><a
 						class="text-blue text-strong"
-						href="bbsview.do?bbsId=${bbsview.bbsId-1}">이전글</a></td>
+						href="boardview.do?boardNo=${v.boardNo-1}">이전글</a></td>
 
 					<td class=" text-align-center text-indent"><a
-						class="btn btn-list" href="bbs.do">목록</a></td>
+						class="btn btn-list" href="board.do">목록</a></td>
 
 					<td class="text-align-right text-indent"><a
-						href="bbsview.do?bbsId=${bbsview.bbsId+1}">다음글</a></td>
+						href="boardview.do?boardNo=${v.boardNo+1}">다음글</a></td>
 
 
 				</tr>
@@ -59,11 +55,11 @@
 	</div>
 	<div style="text-align:right;">
 		<c:choose>
-			<c:when test="${bbsview.id == sessionID || sessionID == null }">
-				<td><a href="bbsdelete.do?bbsId=${bbsview.bbsId}">
+			<c:when test="${v.userNo == sessionID || sessionID == null }">
+				<td><a href="boarddelete.do?boardNo=${v.boardNo}">
 						<button class="btn1">삭제</button>
 				</a></td>
-				<td><a href="bbsupdate.do?bbsId=${bbsview.bbsId}">
+				<td><a href="boardupdate.do?boardNo=${v.boardNo}">
 						<button class="btn1">수정</button>
 				</a></td>
 			</c:when>

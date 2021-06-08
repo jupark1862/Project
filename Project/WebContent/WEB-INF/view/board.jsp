@@ -1,8 +1,8 @@
 <%@page import="java.sql.Timestamp"%>
-<%@page import="com.exam.dto.BbsDto"%>
+<%@page import="com.exam.dto.BoardDto"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
-<%@page import="com.exam.dao.BbsDao"%>
+<%@page import="com.exam.dao.BoardDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -11,8 +11,8 @@
 <%@ include file="include/header.jspf"%>
 <!-- Search Section Starts -->
 <%
-	BbsDao bbsDao = BbsDao.getInstance();
-List<BbsDto> list = bbsDao.selectList();
+	BoardDao boardDao = BoardDao.getInstance();
+List<BoardDto> list = boardDao.selectList();
 %>
 <section class="search-area condensed parallax">
 	<!-- Nested Container Starts -->
@@ -73,19 +73,29 @@ List<BbsDto> list = bbsDao.selectList();
 	<div class="row">
 		<!-- Sidearea Starts -->
 		<div class="col-lg-3 col-md-4 col-sm-12">
-			<!-- Sidearea Filters Starts -->
+
+
+			<!-- 검색창 Start -->
 			<div class="sidearea-filter">
+			<form class="teble-form">
+				<select name="f">
+					<option value="title">제목</option>
+					<option value="writerId">작성자</option>
+				</select>
 				<!-- Search Field Starts -->
-				<div class="input-group sidearea-filter-search">
-					<input type="text" class="form-control rounded-0"
-						placeholder="Search for..."> <span
-						class="input-group-append">
-						<button class="btn btn-default rounded-0" type="button">
-							<i class="fa fa-search"></i>
-						</button>
-					</span>
-				</div>
-				<!-- Search Field Ends -->
+					<div class="input-group sidearea-filter-search">
+						<input type="text" name="q" class="form-control rounded-0"
+							placeholder="Search for..."> <span
+							class="input-group-append">
+							<button class="btn btn-default rounded-0" type="submit">
+								<i class="fa fa-search"></i>
+							</button>
+						</span>
+					</div>
+				</form>
+				<!-- 검색창 Ends -->
+
+
 				<!-- Sort By Field Starts -->
 				<select class="form-control rounded-0 sidearea-filter-sort">
 					<option>Sort by : 평점높은순</option>
@@ -106,24 +116,24 @@ List<BbsDto> list = bbsDao.selectList();
 				<!-- List #1 Starts -->
 				<!-- List Descriptions Starts -->
 				<div class="float-center list-box-info">
-				
+
 					<%
 						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss");
 					int count = 0;
-					for (BbsDto b : list) {
+					for (BoardDto b : list) {
 						String stDate = "";
-						Timestamp tDate = b.getBbsDate();
+						Timestamp tDate = b.getBoardDate();
 						if (tDate != null) {
 							stDate = sdf.format(tDate);
 						}
 					%>
-					
+
 					<div class="list-box clearfix">
 						<h5 class="list-box-info-title">
-							<a href="bbsview.do?bbsId=<%=b.getBbsId()%>"><%=b.getBbsTitle()%></a>
+							<a href="boardview.do?boardNo=<%=b.getBoardNo()%>"><%=b.getBoardTitle()%></a>
 						</h5>
-						<a href="bbsview.do?bbsId=<%=b.getBbsId()%>" class="dropdown-item"><i
-							class="fa fa-angle-right"></i> <%=b.getBbsContent()%></a>
+						<a href="boardview.do?boardNo=<%=b.getBoardNo()%>"
+							class="dropdown-item"><i class="fa fa-angle-right"></i> <%=b.getBoardContents()%></a>
 						<ul class="list-unstyled list-inline list-box-info-tags">
 							<li class="list-inline-item"><a href="#">Pizza</a>,</li>
 							<li class="list-inline-item"><a href="#">American</a>,</li>
@@ -144,10 +154,10 @@ List<BbsDto> list = bbsDao.selectList();
 								1.2 miles</li>
 						</ul>
 						<ul class="list-unstyled list-inline list-box-info-links">
-							<li class="list-inline-item"><i class="fa fa-info-circle"></i><%=b.getBbsDate()%></li>
+							<li class="list-inline-item"><i class="fa fa-info-circle"></i><%=b.getBoardDate()%></li>
 							<li class="list-inline-item"><i class="fa fa-star-half-full"></i>
 								<a href="">답글(몇개)</a></li>
-							<li class="list-inline-item"><i class="fa fa-asterisk"></i><%=b.getBbsHit()%></li>
+							<li class="list-inline-item"><i class="fa fa-asterisk"></i><%=b.getHit()%></li>
 						</ul>
 					</div>
 					<%
@@ -162,6 +172,7 @@ List<BbsDto> list = bbsDao.selectList();
 						style="margin-bottom: 14px;">글쓰기</a>
 				</div>
 
+
 				<div class="pagination">
 					<c:set var="page" value="${(param.p==null)?1:param.p}" />
 					<c:set var="startNum" value="${page-(page-1)%5}" />
@@ -169,7 +180,7 @@ List<BbsDto> list = bbsDao.selectList();
 					<ul style="margin: 0 auto;"
 						class="pagination animation float-lg-right">
 						<c:if test="${startNum>1}">
-							<li class="page-item"><a href="?p=${startNum-5}&t=&q="
+							<li class="page-item"><a href="?p=${startNum-5}&f=&q="
 								class="page-link">&laquo;</a></li>
 						</c:if>
 						<c:if test="${startNum<=1}">
@@ -180,17 +191,18 @@ List<BbsDto> list = bbsDao.selectList();
 							<c:choose>
 								<c:when test="${(page) == (startNum+i)}">
 									<li class="page-item active"><a
-										href="?p=${startNum+i}&t=&q=" class="page-link">${startNum+i}</a></li>
+										href="?p=${startNum+i}&f=${param.f}&q=${param.q}"
+										class="page-link">${startNum+i}</a></li>
 								</c:when>
 								<c:otherwise>
-									<li class="page-item"><a href="?p=${startNum+i}&t=&q="
+									<li class="page-item"><a href="?p=${startNum+i}&f=&q="
 										class="page-link">${startNum+i}</a></li>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
 
 						<c:if test="${startNum+5<lastNum}">
-							<li class="page-item"><a href="?p=${startNum+5}&t=&q="
+							<li class="page-item"><a href="?p=${startNum+5}&f=&q="
 								class="page-link">&raquo;</a></li>
 						</c:if>
 						<c:if test="${startNum+5>lastNum}">

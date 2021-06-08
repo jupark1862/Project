@@ -2,14 +2,15 @@ package com.exam.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
+//import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class BbsController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import com.exam.dao.BoardDao;
+
+public class BoardDeleteController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,11 +21,13 @@ public class BbsController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		process(req, resp);
 	}
-	
+
 	private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/bbs.jsp");
-		rd.forward(req, resp);
+		String boardNo = req.getParameter("boardNo");
+		BoardDao boardDao = BoardDao.getInstance();
+		boardDao.del(Integer.parseInt(boardNo));
+
+		resp.sendRedirect("board.do");
 	}
-	
 	
 }

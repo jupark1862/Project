@@ -77,12 +77,12 @@ textarea {
 			<table>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="bbsTitle" required id="title" />
+					<td><input type="text" name="boardTitle" required id="title" />
 					</td>
 				</tr>
 				<tr>
 					<td style="padding-top:20px;" colspan="2"><textarea rows="12" cols="50"
-							name="bbsContent"></textarea></td>
+							name="boardContents"></textarea></td>
 				</tr>
 				<tr>
 					<td align="left"><input type="submit" value="작성"
@@ -93,7 +93,7 @@ textarea {
 			</table>
 		</form>
 		<div>
-			<a href="bbs.do">
+			<a href="board.do">
 				<button>게시판</button>
 			</a>
 		</div>

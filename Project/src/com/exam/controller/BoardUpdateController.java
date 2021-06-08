@@ -7,42 +7,41 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.exam.dao.BoardDao;
 import com.exam.dto.BoardDto;
 
-public class WriteController extends HttpServlet {
+public class BoardUpdateController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/write.jsp");
+		String boardNo = req.getParameter("boardNo");
+		BoardDao boardDao = BoardDao.getInstance();
+		BoardDto boardDto = new BoardDto();
+		boardDto = boardDao.selectById(boardNo);
+		
+		req.setAttribute("boardupdate", boardDto);
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/boardupdate.jsp");
 		rd.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
-		HttpSession session = req.getSession();
-		String sessionID = (String) session.getAttribute("sessionID");
-		if (sessionID == null) {
-			sessionID = "비회원";
-		}
-
+		
+		String boardNo = req.getParameter("boardNo");
 		String boardTitle = req.getParameter("boardTitle");
 		String boardContents = req.getParameter("boardContents");
-		int userNo = 1;
-
+		
 		BoardDao boardDao = BoardDao.getInstance();
 		BoardDto boardDto = new BoardDto();
-		boardDto.setBoardNo(boardDao.nextval() + 1);
+		boardDto.setBoardNo(Integer.parseInt(boardNo));
 		boardDto.setBoardTitle(boardTitle);
 		boardDto.setBoardContents(boardContents);
-		boardDto.setUserNo(userNo);
-
-		int wResult = boardDao.write(boardDto);
-		System.out.println(wResult);
+		
+		boardDao.update(boardDto);
 		resp.sendRedirect("board.do");
 	}
-
+	
 }

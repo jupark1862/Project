@@ -16,14 +16,14 @@
 
 <main>
 		<h3 class="main title" align="center">게시글 수정</h3>
-		<form action="bbsupdate.do" method="post">
+		<form action="boardupdate.do" method="post">
 		<table class="table">
 			<tbody>
 				<tr>
 					<th>제목</th>
 					<td class="text-align-left text-indent text-strong text-orange"
 						colspan="2"><input style="width: 700px; height: 24px;"
-						type="text" name="bbsTitle" value="${bbsupdate.bbsTitle}" /></td>
+						type="text" name="boardTitle" value="${boardupdate.boardTitle}" /></td>
 				</tr>
 				<tr>
 					<th>작성일</th>
@@ -31,12 +31,12 @@
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td>${bbsupdate.id}</td>
+					<td>${boardupdate.userNo}</td>
 					<th>조회수</th>
-					<td>${bbsupdate.bbsHit}</td>
+					<td>${boardupdate.hit}</td>
 				</tr>
 				<tr class="content">
-					<td colspan="4"><textarea name="bbsContent" rows="20" cols="200">${bbsupdate.bbsContent}</textarea></td>
+					<td colspan="4"><textarea name="boardContents" rows="20" cols="200">${boardupdate.boardContents}</textarea></td>
 				</tr>
 			</tbody>
 		</table>
@@ -51,7 +51,7 @@
 			</table>
 		</div>
 		<div style="display: none;">
-			<input type="text" name="bbsId" value="${bbsupdate.bbsId}" />
+			<input type="text" name="boardNo" value="${boardupdate.boardNo}" />
 		</div>
 	</form>
 </main>

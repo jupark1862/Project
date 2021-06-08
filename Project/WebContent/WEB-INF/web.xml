@@ -5,12 +5,7 @@
 	id="WebApp_ID" version="4.0">
 	<display-name>jspTest</display-name>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>../index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<servlet>
@@ -32,38 +27,38 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>bbs</servlet-name>
-		<servlet-class>com.exam.controller.BbsController</servlet-class>
+		<servlet-name>board</servlet-name>
+		<servlet-class>com.exam.controller.BoardController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>bbs</servlet-name>
-		<url-pattern>/bbs.do</url-pattern>
+		<servlet-name>board</servlet-name>
+		<url-pattern>/board.do</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>bbsview</servlet-name>
-		<servlet-class>com.exam.controller.BbsViewController</servlet-class>
+		<servlet-name>boardview</servlet-name>
+		<servlet-class>com.exam.controller.BoardViewController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>bbsview</servlet-name>
-		<url-pattern>/bbsview.do</url-pattern>
+		<servlet-name>boardview</servlet-name>
+		<url-pattern>/boardview.do</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>bbsdelete</servlet-name>
-		<servlet-class>com.exam.controller.BbsDeleteController</servlet-class>
+		<servlet-name>boarddelete</servlet-name>
+		<servlet-class>com.exam.controller.BoardDeleteController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>bbsdelete</servlet-name>
-		<url-pattern>/bbsdelete.do</url-pattern>
+		<servlet-name>boarddelete</servlet-name>
+		<url-pattern>/boarddelete.do</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>bbsupdate</servlet-name>
-		<servlet-class>com.exam.controller.BbsUpdateController</servlet-class>
+		<servlet-name>boardupdate</servlet-name>
+		<servlet-class>com.exam.controller.BoardUpdateController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>bbsupdate</servlet-name>
-		<url-pattern>/bbsupdate.do</url-pattern>
+		<servlet-name>boardupdate</servlet-name>
+		<url-pattern>/boardupdate.do</url-pattern>
 	</servlet-mapping>
 </web-app>

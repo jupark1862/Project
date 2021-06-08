@@ -8,25 +8,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.exam.dto.BbsDto;
+import com.exam.dto.BoardDto;
 
-public class BbsDao {
-	private static BbsDao bbsDao = new BbsDao();
+public class BoardDao {
+	private static BoardDao BoardDao = new BoardDao();
 	private Connection con;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	private int result = 0;
 
-	private BbsDao() {
+	public BoardDao() {
 		super();
 	}
 
-	public static BbsDao getInstance() {
-		return bbsDao;
+	public static BoardDao getInstance() {
+		return BoardDao;
 	}
 
 	public Connection getConnect() {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.18.128:1521:xe";
 		String id = "CARE", pw = "CARE";
 
 		try {
@@ -67,13 +67,13 @@ public class BbsDao {
 	public int nextval() {
 		con = getConnect();
 		StringBuffer query = new StringBuffer();
-		query.append("SELECT MAX(bbsId) ").append("FROM bbs");
+		query.append("SELECT MAX(boardNo) ").append("FROM BOARDINFO");
 
 		try {
 			pstmt = con.prepareStatement(query.toString());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				result = rs.getInt("MAX(bbsId)");
+				result = rs.getInt("MAX(boardNo)");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -83,19 +83,18 @@ public class BbsDao {
 		return result;
 	}
 
-	public int write(BbsDto bbsDto) {
+	public int write(BoardDto BoardDto) {
 		con = getConnect();
 		StringBuffer query = new StringBuffer();
-		query.append("INSERT INTO bbs ");
-		query.append("(bbsId, bbsTitle, bbsContent, bbsDate, bbsHit, bbsCategory, id) ");
-		query.append("VALUES (?, ?, ?, sysdate, 0, ?, ?)");
+		query.append("INSERT INTO BOARDINFO ");
+		query.append("(boardNo, userNo, boardTitle, boardContents, boardDate, hit) ");
+		query.append("VALUES (?, ?, ?, ?, sysdate, 0)");
 		try {
 			pstmt = con.prepareStatement(query.toString());
-			pstmt.setInt(1, bbsDto.getBbsId());
-			pstmt.setString(2, bbsDto.getBbsTitle());
-			pstmt.setString(3, bbsDto.getBbsContent());
-			pstmt.setString(4, bbsDto.getBbsCategory());
-			pstmt.setString(5, bbsDto.getId());
+			pstmt.setInt(1, BoardDto.getBoardNo());
+			pstmt.setInt(2, BoardDto.getUserNo());
+			pstmt.setString(3, BoardDto.getBoardTitle());
+			pstmt.setString(4, BoardDto.getBoardContents());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,25 +104,23 @@ public class BbsDao {
 		return result;
 	}
 
-	public List<BbsDto> selectList() {
-		List<BbsDto> list = new ArrayList<>();
+	public List<BoardDto> selectList() {
+		List<BoardDto> list = new ArrayList<>();
 
 		try {
 			con = getConnect();
-			String sql = "SELECT * FROM bbs ORDER BY bbsId DESC";
+			String sql = "SELECT * FROM BOARDINFO ORDER BY BoardNo DESC";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				BbsDto bbsDto = new BbsDto();
-				bbsDto.setBbsId(rs.getInt("bbsId"));
-				bbsDto.setBbsTitle(rs.getString("bbsTitle"));
-				bbsDto.setBbsContent(rs.getString("bbsContent"));
-				bbsDto.setBbsDate(rs.getTimestamp("bbsDate"));
-				bbsDto.setBbsHit(rs.getInt("bbsHit"));
-				bbsDto.setBbsCategory(rs.getString("bbsCategory"));
-				bbsDto.setId(rs.getString("id"));
-				list.add(bbsDto);
+				BoardDto boardDto = new BoardDto();
+				boardDto.setBoardNo(rs.getInt("BoardNo"));
+				boardDto.setBoardTitle(rs.getString("BoardTitle"));
+				boardDto.setBoardContents(rs.getString("BoardContents"));
+				boardDto.setBoardDate(rs.getTimestamp("BoardDate"));
+				boardDto.setHit(rs.getInt("Hit"));
+				list.add(boardDto);
 			}
 
 		} catch (Exception e) {
@@ -135,13 +132,13 @@ public class BbsDao {
 
 	}
 
-	public int hitUpdate(String bbsId) {
+	public int hitUpdate(String boardNo) {
 		con = getConnect();
-		String sql = "UPDATE bbs SET bbsHit = bbsHit + 1 WHERE bbsId = ?";
+		String sql = "UPDATE BOARDINFO SET Hit = Hit + 1 WHERE BoardNo = ?";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, bbsId);
+			pstmt.setString(1, boardNo);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -151,24 +148,22 @@ public class BbsDao {
 		return result;
 	}
 
-	public BbsDto selectById(String bbsId) {
-		BbsDto bbsDto = new BbsDto();
+	public BoardDto selectById(String boardNo) {
+		BoardDto boardDto = new BoardDto();
 		con = getConnect();
-		String sql = "SELECT * FROM bbs WHERE bbsId = ?";
+		String sql = "SELECT * FROM BOARDINFO WHERE BoardNo = ?";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, bbsId);
+			pstmt.setString(1, boardNo);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				bbsDto.setBbsId(rs.getInt("bbsid"));
-				bbsDto.setBbsTitle(rs.getString("bbstitle"));
-				bbsDto.setBbsContent(rs.getString("bbscontent"));
-				bbsDto.setBbsDate(rs.getTimestamp("bbsdate"));
-				bbsDto.setBbsHit(rs.getInt("bbshit"));
-				bbsDto.setBbsCategory(rs.getString("bbscategory"));
-				bbsDto.setId(rs.getString("id"));
+				boardDto.setBoardNo(rs.getInt("boardNo"));
+				boardDto.setBoardTitle(rs.getString("boardtitle"));
+				boardDto.setBoardContents(rs.getString("boardContents"));
+				boardDto.setBoardDate(rs.getTimestamp("boardDate"));
+				boardDto.setHit(rs.getInt("hit"));
 			}
 
 		} catch (SQLException e) {
@@ -176,16 +171,16 @@ public class BbsDao {
 		} finally {
 			close(con, pstmt, rs);
 		}
-		return bbsDto;
+		return boardDto;
 	}
 
-	public int del(int bbsId) {
+	public int del(int BoardNo) {
 		con = getConnect();
-		String sql = "DELETE FROM BBS WHERE bbsId = ?";
+		String sql = "DELETE FROM BOARDINFO WHERE BoardNo = ?";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, bbsId);
+			pstmt.setInt(1, BoardNo);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -195,18 +190,18 @@ public class BbsDao {
 		return result;
 	}
 
-	public int update(BbsDto bbsDto) {
+	public int update(BoardDto BoardDto) {
 		con = getConnect();
 		StringBuffer query = new StringBuffer();
-		query.append("UPDATE BBS SET bbsTitle = ?, ");
-		query.append("bbsContent = ?");
-		query.append("WHERE bbsId = ?");
-		
+		query.append("UPDATE BOARDINFO SET BoardTitle = ?, ");
+		query.append("BoardContents = ?");
+		query.append("WHERE BoardNo = ?");
+
 		try {
 			pstmt = con.prepareStatement(query.toString());
-			pstmt.setString(1, bbsDto.getBbsTitle());
-			pstmt.setString(2, bbsDto.getBbsContent());
-			pstmt.setInt(3, bbsDto.getBbsId());
+			pstmt.setString(1, BoardDto.getBoardTitle());
+			pstmt.setString(2, BoardDto.getBoardContents());
+			pstmt.setInt(3, BoardDto.getBoardNo());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -214,5 +209,6 @@ public class BbsDao {
 			close(con, pstmt, null);
 		}
 		return result;
+
 	}
 }
